@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import Card from '../Components/Card';
-import Navbar from '../Components/Navbar';
-import ShoppingCart from '../Components/ShoppingCart';
-import './Products.css';
+import Card from '../../Components/Card';
+import Navbar from '../../Components/Navbar';
+import ShoppingCart from '../../Components/ShoppingCart';
+import './Products.scss';
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -31,7 +31,7 @@ function Products() {
       ) : (
         <div className="Products__container">
           {products.map((product) => (
-            <Card card={ product } key={ product.item } />
+            <Card card={ product } key={ product.item }  className="card"/>
           ))}
           <ShoppingCart />
         </div>

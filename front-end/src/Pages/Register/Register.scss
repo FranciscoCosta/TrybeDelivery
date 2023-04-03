@@ -1,0 +1,156 @@
+.Register{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-color);
+    
+
+    .Register__container{
+        text-align: center;
+        min-height: 48rem;
+        width: 32rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 25px;
+        // background: rgb(159, 154, 135);
+        // background: linear-gradient(
+        //   0deg,
+        //   rgb(175, 169, 1  48) 0%,
+        //   rgba(230, 224, 204, 1) 100%
+        // );
+        background: var(--tertiary-color);
+        box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+
+        img {
+          margin-top: 1rem;
+          width: 20rem;
+        }
+
+        label {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: var(--secondary-color);
+          position: relative;
+
+          button{
+            overflow: hidden;
+            width: 25px;
+            height: 25px;
+            background-color: transparent;
+            position: absolute;
+            top: 22px;
+            right: 22px;
+
+            svg{
+              color: rgba(0, 0, 0, 0.2);
+            
+            :hover{
+              transition: 0.4s all ease-in-out;
+              color: rgba(0, 0, 0, 0.8);
+            }
+            }
+          }
+        }
+        input {
+          background-color: white;
+          border: none;
+          border-radius: 12px;
+          box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: 400;
+          height: 2.5rem;
+          letter-spacing: 0.5px;
+          padding: 8px 10px;
+          transition: all 0.3s ease 0s;
+          width: 100%;
+          margin-bottom: 1rem;
+        }
+
+        input:focus {
+          border: 1px solid var(--secondary-color);
+          outline: 1px solid var(--secondary-color);
+        }
+
+        p {
+          color: var(--secondary-color);
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          cursor: pointer;
+          transition: 0.3s all ease-in-out;
+
+          &:hover {
+            font-weight: 600;
+            font-size: 1.4rem;
+          }
+        }
+        .error {
+          color: var(--error-color);
+          font-size: 1.2em;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;          
+          cursor: default;
+
+          &:hover {
+            font-weight: 600;
+            font-size: 1.2rem;
+          }
+        }
+
+        button {
+          border: none;
+          border-radius: 45px;
+          box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          font-size: 1.5rem;
+          font-weight: 600;
+          height: 50px;
+          letter-spacing: 1px;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          outline: none;
+          text-transform: uppercase;
+          transition: all 0.3s ease 0s;
+          width: 200px;
+          background-color: var(--secondary-color);
+          color: var(--primary-color);
+          transition: 0.3s all ease-in-out;
+
+          &:disabled {
+            background-color: black;
+            background-color: rgba(243, 171, 22, 0.4);
+            color: white;
+          }
+        }
+    
+        @media screen and (max-width: 768px) {
+          width: 80vw;
+          height: 90vh;
+          border-radius: 15px;
+          box-shadow: none;
+          gap: 0.5rem;
+  
+          label{
+            width: 90%;
+          }
+          
+        }
+        @media screen and (max-width: 480px) {
+          height: 100vh;
+          width: 100vw;
+          border-radius: 0px;
+          
+        }
+
+    }
+}

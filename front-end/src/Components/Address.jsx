@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import { Context } from '../Context/Context';
-
+import './Address.scss'
 function Address() {
   const data = new Date();
   console.log(data);
@@ -93,16 +93,6 @@ function Address() {
                 ))}
               </select>
             </label>
-            <label htmlFor="address">
-              Endereço
-              <input
-                data-testid="customer_checkout__input-address"
-                name="address"
-                type="text"
-                placeholder="Ex: Rua da noite"
-                onChange={ (e) => setAddress(e.target.value) }
-              />
-            </label>
             <label htmlFor="door">
               Número
               <input
@@ -111,6 +101,16 @@ function Address() {
                 type="text"
                 placeholder="Ex: 123"
                 onChange={ (e) => setDoor(e.target.value) }
+              />
+            </label>
+            <label htmlFor="address">
+              Endereço
+              <input
+                data-testid="customer_checkout__input-address"
+                name="address"
+                type="text"
+                placeholder="Ex: Rua da noite"
+                onChange={ (e) => setAddress(e.target.value) }
               />
             </label>
             <button

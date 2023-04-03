@@ -1,16 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Navbar from '../Components/Navbar';
-import Descriptions from '../Components/Descriptions';
-import { Context } from '../Context/Context';
+import Navbar from '../../Components/Navbar';
+import { Context } from '../../Context/Context';
 
-function Orders() {
-  const { update, setUpdate } = useContext(Context);
+function SellerDetails() {
   const { id } = useParams();
   const [order, setOrder] = useState({});
-  const [sellerName, setSellerName] = useState('');
+  const [sellerName] = useState('');
   const [totalProducts, settotalProducts] = useState([]);
+  const { update, setUpdate } = useContext(Context);
+
   function formatDate() {
     const date = new Date();
     return date.toLocaleDateString('pt-br');
@@ -19,12 +19,9 @@ function Orders() {
   const getOrder = async () => {
     const orderId = id;
     const sale = await axios.get(`http://localhost:3001/orders/${orderId}`);
-    console.log(sale.data.sellerId, 'OBJETO DA SALE');
     setOrder(sale.data);
-    const seller = await axios.post('http://localhost:3001/usersId', { id: sale.data.sellerId });
-    console.log(seller, 'OBJETO Do seller');
-    setSellerName(seller.data.name);
     const saleProduct = sale.data.id;
+
     const sales = await axios.post(
       'http://localhost:3001/saleproducts',
       { saleProduct },
@@ -54,8 +51,7 @@ function Orders() {
     );
     setUpdate(!update);
   };
-
-  const status = 'customer_order_details__element-order-details-label-delivery-status';
+  const status = 'seller_order_details__element-order-details-label-delivery-status';
   return (
     <main className="Checkout">
       <Navbar />
@@ -64,19 +60,19 @@ function Orders() {
         <form>
           <label
             htmlFor="id_order"
-            data-testid="customer_order_details__element-order-details-label-order-id"
+            data-testid="seller_order_details__element-order-details-label-order-id"
           >
             <p>{order.id}</p>
           </label>
           <label
             htmlFor="id_seller"
-            data-testid="customer_order_details__element-order-details-label-seller-name"
+            data-testid="seller_order_details__element-order-details-label-seller-name"
           >
             <p>{sellerName}</p>
           </label>
           <label
             htmlFor="sale_date"
-            data-testid="customer_order_details__element-order-details-label-order-date"
+            data-testid="seller_order_details__element-order-details-label-order-date"
           >
             { formatDate() }
           </label>
@@ -87,52 +83,72 @@ function Orders() {
             {order.status}
           </button>
           <button
-            data-testid="customer_order_details__button-delivery-check"
+            data-testid="seller_order_details__button-preparing-check"
+            type="button"
+            disabled={ order.status !== 'Pendente' }
+            onClick={ () => handleChangeStatus('Preparando') }
+          >
+            Preparar pedido
+          </button>
+          <button
+            data-testid="seller_order_details__button-dispatch-check"
+            type="button"
+            disabled={ order.status !== 'Preparando' }
+            onClick={ () => handleChangeStatus('Em Trânsito') }
+          >
+            Saiu para Entregar
+          </button>
+
+          <button
+            data-testid="seller_order_details__button-delivery-check"
             type="button"
             disabled={ order.status !== 'Em Trânsito' }
-            onClick={ () => handleChangeStatus('Entregue') }
           >
             MARCAR COMO ENTREGUE
           </button>
         </form>
         <table>
           <thead>
-            <Descriptions />
+            <th>Item</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Valor Unitário</th>
+            <th>Subtotal</th>
           </thead>
           <tbody>
             {totalProducts.map((item, index) => (
               <tr key={ index }>
                 <td
                   data-testid={
-                    `customer_order_details__element-order-table-item-number-${index}`
+                    `seller_order_details__element-order-table-item-number-${index}`
                   }
                 >
                   {index + 1 }
                 </td>
                 <td
                   data-testid={
-                    `customer_order_details__element-order-table-name-${index}`
+                    `seller_order_details__element-order-table-name-${index}`
                   }
                 >
                   {item.name}
                 </td>
                 <td
                   data-testid={
-                    `customer_order_details__element-order-table-quantity-${index}`
+                    `seller_order_details__element-order-table-quantity-${index}`
                   }
                 >
                   {item.quntity}
                 </td>
                 <td
                   data-testid={
-                    `customer_order_details__element-order-table-unit-price-${index}`
+                    `seller_order_details__element-order-table-unit-price-${index}`
                   }
                 >
                   {item.price}
                 </td>
                 <td
                   data-testid={
-                    `customer_order_details__element-order-table-sub-total-${index}`
+                    `seller_order_details__element-order-table-sub-total-${index}`
                   }
                 >
                   {(item.price * item.quntity).toFixed(2)}
@@ -142,18 +158,17 @@ function Orders() {
           </tbody>
         </table>
         <button
-          data-testid="customer_order_details__element-order-total-price"
+          data-testid="seller_order_details__element-order-total-price"
           type="button"
         >
           {((totalProducts.reduce((acc, item) => {
             const { quntity, price } = item;
             return acc + (quntity * price);
           }, 0)).toFixed(2).toString().replace(/\./g, ','))}
-
         </button>
       </section>
     </main>
   );
 }
 
-export default Orders;
+export default SellerDetails;

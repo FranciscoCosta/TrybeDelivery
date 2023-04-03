@@ -1,0 +1,63 @@
+.Address{
+    width: 100%;
+    height: max-content;
+    min-height: 30rem;
+
+
+    .Address__container{
+        width: 100%;
+
+        form{
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            label {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: var(--secondary-color);
+                width: 50%;
+            }
+              input {
+                background-color: white;
+                border: none;
+                border-radius: 12px;
+                box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                font-size: 1rem;
+                font-weight: 400;
+                height: 2.5rem;
+                letter-spacing: 0.5px;
+                padding: 8px 10px;
+                transition: all 0.3s ease 0s;
+                width: 100%;
+                margin-bottom: 1rem;
+              }
+      
+              input:focus {
+                border: 1px solid var(--secondary-color);
+                outline: 1px solid var(--secondary-color);
+              }
+
+              button{
+                position: absolute;
+                bottom: 0;
+              }
+              select{
+                width: 300px;
+                margin-top: 1rem;
+                outline: none;
+                border: none;
+                height: 40px;
+                background-color: white;
+                color: black;
+                font-size: 1.2rem;
+              }
+        }
+    }
+  }

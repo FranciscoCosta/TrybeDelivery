@@ -1,9 +1,11 @@
 import React, { useContext, useEffect } from 'react';
+import './Checkout.scss';
 
-import Navbar from '../Components/Navbar';
-import Descriptions from '../Components/Descriptions';
-import { Context } from '../Context/Context';
-import Address from '../Components/Address';
+import { FaTrash} from 'react-icons/fa';
+import Navbar from '../../Components/Navbar';
+import Descriptions from '../../Components/Descriptions';
+import { Context } from '../../Context/Context';
+import Address from '../../Components/Address';
 
 function Checkout() {
   const { total, update, setUpdate, getTotalPriceFromCart } = useContext(Context);
@@ -27,7 +29,7 @@ function Checkout() {
     <main className="Checkout">
       <Navbar />
       <section className="Checkout__container">
-        <h3>Finalizar Pedido</h3>
+        <h1>Finalizar Pedido</h1>
         <table>
           <thead>
             <Descriptions />
@@ -83,7 +85,7 @@ function Checkout() {
                     id={ item.productId }
                     onClick={ handleRemove }
                   >
-                    Remover
+                    <FaTrash/>
                   </button>
                 </td>
               </tr>
@@ -94,7 +96,7 @@ function Checkout() {
           data-testid="customer_checkout__element-order-total-price"
           type="button"
         >
-          {total.replace(/\./g, ',')}
+          Valor total de R$: {total.replace(/\./g, ',')}
         </button>
         <h1>Detalhes e Endereço para Entrega</h1>
         <Address />

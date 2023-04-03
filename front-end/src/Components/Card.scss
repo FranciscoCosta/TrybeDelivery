@@ -1,0 +1,102 @@
+.Card{
+  display: flex;
+  width: 250px;
+  height: 400px;
+  overflow: hidden;
+
+  .Card__container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(250,250,250, 0.6);
+    background-color:white;
+    position: relative;
+    overflow: hidden;
+    .Card__container__top{
+      margin-top: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+       p{
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        color: var(--success-color);
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      img{
+        overflow: hidden;
+        margin-top: 2rem;
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+
+    .Card__container__down{
+      border-top:  1px solid rgba(150, 150, 150, 0.6);
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #474449;
+      padding-bottom: 1.9rem;
+
+      h2{
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        height: 3.8rem;
+      }
+
+
+      .Card__container-buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+        input{
+          width: 150px;
+          height: 30px;
+          text-align: center;
+          padding-left: 0px;
+          font-size: 1rem;
+          font-weight: 400;
+          border: none;
+          border-top: 1px solid rgba(150, 150, 150, 0.6);
+          border-bottom: 1px solid rgba(150, 150, 150, 0.6);
+          outline: none;
+        }
+
+        .Card__button-minus , .Card__button-plus{
+          width: 30px;
+          background-color: var(--secondary-color);
+          outline: none;
+          border: none;
+          height: 30px;
+          font-size: 1rem;
+          font-weight: 400;
+          border-radius: 5px 0px 0px 5px;
+          border-top: 1px solid rgba(150, 150, 150, 0.6);
+          border-bottom: 1px solid rgba(150, 150, 150, 0.6);
+          border-left: 1px solid rgba(150, 150, 150, 0.6);
+        }
+
+        .Card__button-plus{
+          border-radius: 0px 5px 5px 0px;
+          border-left: 0px;
+          border-right: 1px solid rgba(150, 150, 150, 0.6);
+        }
+      }
+    }
+  }
+}
