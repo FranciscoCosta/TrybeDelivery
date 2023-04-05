@@ -7,6 +7,7 @@ import './Products.scss';
 import Loading from '../../Components/Loading/Loading';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Footer from '../../Components/Footer/Footer';
 
 const responsive = {
   superLargeDesktop: {
@@ -111,6 +112,7 @@ function Products() {
           </div>
         </div>
       )}
+    <Footer/>
     </div>
   );
 }
