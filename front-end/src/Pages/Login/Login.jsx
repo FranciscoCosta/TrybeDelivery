@@ -3,10 +3,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 import logo from "../../assets/Logo.png"
+import {FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordType, setPasswordType] = useState('password');
   const [error, setError] = useState(null);
   const [isValid, setIsValid] = useState(false);
   const navigate = useNavigate();
@@ -71,6 +73,14 @@ function Login() {
     validateInputs();
   }, [email, password]);
 
+  const handleView = () => {
+    if (passwordType === 'password') {
+      setPasswordType('text');
+    } else {
+      setPasswordType('password');
+    }
+  };  
+
   return (
     <div className="Login">
       <div className="Login__container">
@@ -89,6 +99,7 @@ function Login() {
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
               />
+              
             </label>
 
             <label htmlFor="password">
@@ -97,10 +108,11 @@ function Login() {
               value={password}
                 data-testid="common_login__input-password"
                 name="password"
-                type="password"
+                type={passwordType}
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <button type='button' onClick={()=> handleView()}>{passwordType==="password" ?<FaEye/> : <FaEyeSlash/>}</button>
             </label>
             <button
               data-testid="common_login__button-login"

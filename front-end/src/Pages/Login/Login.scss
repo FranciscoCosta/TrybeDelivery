@@ -30,14 +30,8 @@
         justify-content: flex-start;
         background: var(--tertiary-color);
         box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.2);
-        border-radius: 25px;
+        border-radius: 15px;
         overflow: hidden;
-        // background: rgb(159, 154, 135);
-        // background: linear-gradient(
-        //   0deg,
-        //   rgb(175, 169, 148) 0%,
-        //   rgba(230, 224, 204, 1) 100%
-        // );
         border-collapse: collapse;
 
 
@@ -53,6 +47,26 @@
           font-size: 1.4rem;
           font-weight: 600;
           color: var(--secondary-color);
+          position: relative;
+
+          button{
+            overflow: hidden;
+            width: 25px;
+            height: 25px;
+            background-color: transparent;
+            position: relative;
+            top : -50px;
+            right: -130px;
+
+            svg{
+              color: rgba(0, 0, 0, 0.2);
+            
+            :hover{
+              transition: 0.4s all ease-in-out;
+              color: rgba(0, 0, 0, 0.8);
+            }
+            }
+          }
         }
         input {
           background-color: white;
@@ -110,8 +124,7 @@
           font-weight: 600;
           height: 50px;
           letter-spacing: 1px;
-          margin-top: 1rem;
-          margin-bottom: 2rem;
+          margin-bottom: 0.5rem;
           outline: none;
           text-transform: uppercase;
           transition: all 0.3s ease 0s;

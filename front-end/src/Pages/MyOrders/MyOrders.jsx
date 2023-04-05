@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
+import Loading from '../../Components/Loading/Loading';
+import './MyOrders.scss';
 
 function MyOrders() {
   const navigate = useNavigate();
@@ -29,13 +31,17 @@ function MyOrders() {
   return (
     <div className="MyOrders">
       <Navbar />
-      {isLoading ? (
-        'Carrengado...'
-      ) : (
+      {isLoading ? 
+        <Loading />
+       : (
         <div className="MyOrders__container">
+          <h1>Seus pedidos</h1>
           {orders.map === []
             ? 'Você não tem pedidos'
-            : orders.map((order) => (
+            : 
+            
+            <div className='Orders__container-cards'>
+            {orders.map((order) => (
               <div
                 onKeyDown={ (e) => {
                   if (e.key === 'Enter') {
@@ -53,29 +59,43 @@ function MyOrders() {
                     {order.id}
                   </p>
                 </div>
+                                <div className="Order_right">
+                  <p
+                    data-testid={ `customer_orders__element-order-date-${order.id}` }
+                  >
+                    {formatDate(order.saleDate)}
+                  </p>
+                  <span
+                    data-testid={ `customer_orders__element-card-price-${order.id}` }
+                  >
+                    R$: {order.totalPrice.replace(/\./g, ',')}
+
+                  </span>
+                </div>
                 <div className="Order_center">
                   <p
+                  style={{
+                  backgroundColor:
+                    order.status === 'Pendente'
+                      ? '#ff4779'
+                      : order.status === 'Preparando'
+                      ? '#0a97b7'
+                      : order.status === 'Em Trânsito'
+                      ? '#FFD523'
+                      : order.status === 'Entregue'
+                      ? '#4ae54a'
+                      : 'white',
+                }}
                     data-testid={ `customer_orders__element-delivery-status-${order.id}` }
                   >
                     {order.status}
                   </p>
                 </div>
-                <div className="Order_right">
-                  <p
-                    data-testid={ `customer_orders__element-order-date-${order.id}` }
-                  >
-                    {formatDate(order.saleDate)}
-
-                  </p>
-                  <p
-                    data-testid={ `customer_orders__element-card-price-${order.id}` }
-                  >
-                    {order.totalPrice.replace(/\./g, ',')}
-
-                  </p>
-                </div>
               </div>
-            ))}
+            )
+        )}
+        </div>
+        }
         </div>
       )}
     </div>

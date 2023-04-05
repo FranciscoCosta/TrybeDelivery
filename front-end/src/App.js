@@ -10,6 +10,7 @@ import {
   Checkout,
   SellerOrders,
   SellerDetails,
+  Profile,
   Admin,
 } from "./Pages/index";
 
@@ -26,6 +27,7 @@ function App() {
       <Route exact path="/seller/orders/:id" element={<SellerDetails />} />
       <Route exact path="/seller/orders" element={<SellerOrders />} />
       <Route exact path="/admin/manage" element={<Admin />} />
+      <Route exact path="/profile" element={<Profile />} />
     </Routes>
   );
 }

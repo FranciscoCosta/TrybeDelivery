@@ -77,8 +77,9 @@ function Address() {
       ) : (
         <div className="Address__container">
           <form action="sumbmit">
+            <div className='Address__left'>
             <label htmlFor="seller">
-              P. Vendedora Responsável:
+              Vendedor:
               <select
                 name="seller"
                 id="seller"
@@ -93,6 +94,8 @@ function Address() {
                 ))}
               </select>
             </label>
+            </div>
+            <div className='Address__right'>
             <label htmlFor="door">
               Número
               <input
@@ -113,6 +116,7 @@ function Address() {
                 onChange={ (e) => setAddress(e.target.value) }
               />
             </label>
+            </div>
             <button
               type="button"
               className=""

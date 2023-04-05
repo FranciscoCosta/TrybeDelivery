@@ -15,10 +15,16 @@
     --secondary-color: #FFD523;
     --tertiary-color: #474449;
     --error-color: crimson;
-    --success-color: #036b52;
+    --success-color: #00c21d;
+    --background-light: whitesmoke;
   
   }
 
+  .dark-mode:root {
+    --primary-color: rgb(196, 204, 209);
+    --background-light: #090a0f;
+
+  }
 
 
 

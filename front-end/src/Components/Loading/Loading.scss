@@ -1,0 +1,17 @@
+.Loading{
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    @media screen and (max-width: 480px) {
+        width: 50vw;
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 40vw;
+      }
+}

@@ -1,14 +1,15 @@
 import React from 'react';
+import './Description.scss'
+
 
 function Descriptions() {
   return (
-    <tr>
+    <tr className='Descripton'>
       <th>Item</th>
       <th>Descrição</th>
       <th>Quantidade</th>
       <th>Valor Unitário</th>
       <th>Subtotal</th>
-      <th>Remover Item</th>
     </tr>
   );
 }

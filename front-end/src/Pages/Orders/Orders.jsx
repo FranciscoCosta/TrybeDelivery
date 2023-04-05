@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
 import Descriptions from '../../Components/Descriptions';
 import { Context } from '../../Context/Context';
+import './Orders.scss'
 
 function Orders() {
   const { update, setUpdate } = useContext(Context);
@@ -57,10 +58,10 @@ function Orders() {
 
   const status = 'customer_order_details__element-order-details-label-delivery-status';
   return (
-    <main className="Checkout">
+    <main className="Orders">
       <Navbar />
-      <section className="Checkout__container">
-        <h3>Detalhe do Pedido</h3>
+      <section className="Orders__container">
+        <h3>Detalhes do Pedido</h3>
         <form>
           <label
             htmlFor="id_order"
@@ -81,18 +82,32 @@ function Orders() {
             { formatDate() }
           </label>
           <button
+            className='Orders__btn-status'
             data-testid={ status }
             type="button"
+            style={{
+              backgroundColor:
+                order.status === 'Pendente'
+                  ? '#ff4779'
+                  : order.status === 'Preparando'
+                  ? '#0a97b7'
+                  : order.status === 'Em Trânsito'
+                  ? '#FFD523'
+                  : order.status === 'Entregue'
+                  ? '#4ae54a'
+                  : 'white',
+            }}
           >
             {order.status}
           </button>
           <button
+          className='Orders__btn-delivry'
             data-testid="customer_order_details__button-delivery-check"
             type="button"
             disabled={ order.status !== 'Em Trânsito' }
             onClick={ () => handleChangeStatus('Entregue') }
           >
-            MARCAR COMO ENTREGUE
+            Marcar como Entregue
           </button>
         </form>
         <table>
@@ -144,8 +159,9 @@ function Orders() {
         <button
           data-testid="customer_order_details__element-order-total-price"
           type="button"
+          className='DetailsOrder-total'
         >
-          {((totalProducts.reduce((acc, item) => {
+          Total de R$: {((totalProducts.reduce((acc, item) => {
             const { quntity, price } = item;
             return acc + (quntity * price);
           }, 0)).toFixed(2).toString().replace(/\./g, ','))}

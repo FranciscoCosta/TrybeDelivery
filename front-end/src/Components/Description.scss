@@ -1,0 +1,9 @@
+.Descripton{
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+
+
+    &:hover{
+        background-color: var(--secondary-color) !important;
+    }
+}

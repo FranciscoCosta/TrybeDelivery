@@ -2,28 +2,69 @@
     width: 100%;
     height: max-content;
     min-height: 30rem;
-
-
+    
+    
     .Address__container{
         width: 100%;
-
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 3rem;
+        box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        
         form{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          position: relative;
+          
+          .Address__left{
+            flex: 1;
             display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
             justify-content: center;
-            position: relative;
+            align-items: center;
+            label{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+                font-size: 1.3rem;
+                font-weight: 600;
+                gap: 2rem;
+              }
+              select{
+                align-self: flex-start;
+                width: 300px;
+                margin-top: 1rem;
+                outline: none;
+                border: none;
+                height: 40px;
+                background-color:var(--primary-color);
+                color: var(--secondary-color);
+                font-size: 1.2rem;
+              }
+        }
+            
 
-            label {
+            .Address__right{
+              flex: 2;
+              width: 100%;
+              margin-left: 3rem;
+              
+              label {
+              width: 100%;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
+                gap: 0.5rem;
+                justify-content: center;
                 font-size: 1.4rem;
                 font-weight: 600;
                 color: var(--secondary-color);
-                width: 50%;
-            }
-              input {
+                width: 100%;
+                
+                input {
                 background-color: white;
                 border: none;
                 border-radius: 12px;
@@ -35,9 +76,10 @@
                 letter-spacing: 0.5px;
                 padding: 8px 10px;
                 transition: all 0.3s ease 0s;
-                width: 100%;
+                min-width: 40rem;
                 margin-bottom: 1rem;
               }
+            }
       
               input:focus {
                 border: 1px solid var(--secondary-color);
@@ -48,16 +90,7 @@
                 position: absolute;
                 bottom: 0;
               }
-              select{
-                width: 300px;
-                margin-top: 1rem;
-                outline: none;
-                border: none;
-                height: 40px;
-                background-color: white;
-                color: black;
-                font-size: 1.2rem;
-              }
-        }
+            }
+          }
+          }
     }
-  }

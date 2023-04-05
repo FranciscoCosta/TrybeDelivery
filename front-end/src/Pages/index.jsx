@@ -7,10 +7,12 @@ import Checkout from './Checkout/Checkout';
 import SellerOrders from './SellerOrders/SellerOrders';
 import SellerDetails from './SellerDetails/SellerDetails';
 import Admin from './Admin/Admin';
+import Profile from './Profile/Profile';
 
 
 export  {
     Login,
+    Profile,
     Register,
     Products,
     Orders,

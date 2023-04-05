@@ -12,9 +12,10 @@ function Checkout() {
   const cart = JSON.parse(localStorage.getItem('carrinho')) || [];
 
   useEffect(() => {
-  }, [total]);
+  }, [total,update]);
 
-  const handleRemove = ({ target: { id } }) => {
+  const handleRemove = (id) => {
+    console.log(id)
     const cartL = JSON.parse(localStorage.getItem('carrinho')) || [];
     if (cartL !== []) {
       const newCart = cartL.filter((item) => item.productId !== id);
@@ -37,7 +38,6 @@ function Checkout() {
           <tbody>
             {cart.map((item, index) => (
               <tr key={ index }>
-                {console.log(item, 'ITEM')}
                 <td
                   data-testid={
                     `customer_checkout__element-order-table-item-number-${index}`
@@ -76,16 +76,20 @@ function Checkout() {
                     .replace(/\./g, ',')}
                 </td>
                 <td
+                className='Checkout__btn-delete'
                   data-testid={
                     `customer_checkout__element-order-table-remove-${index}`
                   }
                 >
                   <button
                     type="button"
+                    value={item.productId}
                     id={ item.productId }
-                    onClick={ handleRemove }
+                    onClick={ ()=>handleRemove(item.productId) }
                   >
-                    <FaTrash/>
+                    <FaTrash
+                    id={ item.productId }
+                    />
                   </button>
                 </td>
               </tr>

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
+import Loading from '../../Components/Loading/Loading';
 
 function SellerOrders() {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ function SellerOrders() {
     <div className="SellerOrders">
       <Navbar />
       {isLoading ? (
-        'Carrengado...'
+        <Loading />
       ) : (
         <div className="SellerOrders__container">
           {orders.map === []
