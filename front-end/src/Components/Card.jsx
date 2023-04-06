@@ -2,9 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../Context/Context";
 import "./Card.scss";
+import { GrFormClose } from "react-icons/gr";
 
 function Card({ card }) {
+  console.log(card);
   const [quantity, setquantity] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const { setUpdate, update, getTotalPriceFromCart } = useContext(Context);
 
   useEffect(() => {
@@ -75,6 +78,41 @@ function Card({ card }) {
 
   return (
     <div className="Card">
+      <div
+        className="Card__modal"
+        style={{ display: showModal ? "flex" : "none" }}
+      >
+        <div className="Card__modal__container">
+          <button
+            className="Card__modal__container__close"
+            onClick={() => setShowModal(!showModal)}
+          >
+            <GrFormClose />
+          </button>
+          <div className="Card__modal__container__top">
+            <h1>{card.name}</h1>
+          </div>
+          <div className="Card__modal__container__down">
+            <div className="Card__down-left">
+              <img src={card.urlImage} alt={card.name} />
+              <div className="Card__info">
+              <h2>Quantidade:</h2>
+              <p>{card.volume}</p>
+              <h2>Teor de álcool:</h2>
+              <p>{card.alcoholContent}</p>
+              <h2>Temperatura Ideal:</h2>
+              <p>{card.idealTemperature}</p>
+              <h2>Preço:</h2>
+              <p>R${card.price}</p>
+              </div>
+            </div>
+            <div className="Card__down-right">
+              <h2>Descrição:</h2>
+              <p>{card.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="Card__container">
         <div className="Card__container__top">
           <p data-testid={`customer_products__element-card-price-${card.id}`}>
@@ -84,6 +122,7 @@ function Card({ card }) {
             data-testid={`customer_products__img-card-bg-image-${card.id}`}
             src={card.urlImage}
             alt={card.name}
+            onClick={() => setShowModal(!showModal)}
             style={{ width: "100px" }}
           />
         </div>

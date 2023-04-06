@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Card from '../../Components/Card';
 import Navbar from '../../Components/Navbar';
 import ShoppingCart from '../../Components/ShoppingCart';
@@ -8,6 +8,7 @@ import Loading from '../../Components/Loading/Loading';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Footer from '../../Components/Footer/Footer';
+import { Context } from '../../Context/Context';
 
 const responsive = {
   superLargeDesktop: {
@@ -33,10 +34,12 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [mostSold, setMostSold] = useState([]);
+  const { getTotalPriceFromCart } = useContext(Context);
   const fetchProducts = async () => {
     try {
       const getProducts = await axios.get('http://localhost:3001/products');
       setProducts(getProducts.data);
+      console.log(getProducts.data);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -66,6 +69,7 @@ function Products() {
   };
 
   useEffect(() => {
+    getTotalPriceFromCart();
     fetchMostSold();
     fetchProducts();
   }, []);

@@ -12,10 +12,11 @@ function Checkout() {
   const cart = JSON.parse(localStorage.getItem('carrinho')) || [];
 
   useEffect(() => {
+    getTotalPriceFromCart()
+    console.log(total)
   }, [total,update]);
 
   const handleRemove = (id) => {
-    console.log(id)
     const cartL = JSON.parse(localStorage.getItem('carrinho')) || [];
     if (cartL !== []) {
       const newCart = cartL.filter((item) => item.productId !== id);
@@ -64,7 +65,7 @@ function Checkout() {
                     `customer_checkout__element-order-table-unit-price-${index}`
                   }
                 >
-                  {item.unitPrice.toFixed(2).toString().replace(/\./g, ',')}
+                  {item.unitPrice.toFixed(2)}
                 </td>
                 <td
                   data-testid={
@@ -72,8 +73,7 @@ function Checkout() {
                   }
                 >
                   {(item.unitPrice * item.quantity)
-                    .toFixed(2)
-                    .replace(/\./g, ',')}
+                    .toFixed(2)}
                 </td>
                 <td
                 className='Checkout__btn-delete'
@@ -100,7 +100,7 @@ function Checkout() {
           data-testid="customer_checkout__element-order-total-price"
           type="button"
         >
-          Valor total de R$: {total.replace(/\./g, ',')}
+          Valor total de R$: {Number(total).toFixed(2)}
         </button>
         <h1>Detalhes e Endereço para Entrega</h1>
         <Address />

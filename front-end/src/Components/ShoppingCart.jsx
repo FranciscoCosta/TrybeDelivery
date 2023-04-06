@@ -5,7 +5,8 @@ import './ShoppingCart.scss'
 
 function ShoppingCart() {
   const navigate = useNavigate();
-  const { update, total, getTotalPriceFromCart } = useContext(Context);
+  const {total, update, getTotalPriceFromCart } = useContext(Context);
+  
 
   useEffect(() => {
     getTotalPriceFromCart();

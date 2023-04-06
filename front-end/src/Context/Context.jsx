@@ -8,7 +8,7 @@ function Provider({ children }) {
 
   function getTotalPriceFromCart() {
     const cartItems = JSON.parse(localStorage.getItem('carrinho'));
-
+    console.log(cartItems,"function cart");
     const totalPrice = cartItems.reduce((acc, item) => {
       const { quantity, unitPrice } = item;
       return acc + (quantity * unitPrice);
@@ -24,7 +24,7 @@ function Provider({ children }) {
       getTotalPriceFromCart,
       total,
     }),
-    [update],
+    [update, total],
   );
 
   Provider.propTypes = {
