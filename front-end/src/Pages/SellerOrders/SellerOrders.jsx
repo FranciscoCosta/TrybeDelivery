@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
 import Loading from '../../Components/Loading/Loading';
+import './SellerOrders.scss';
 
 function SellerOrders() {
   const navigate = useNavigate();

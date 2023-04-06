@@ -1,5 +1,5 @@
 .Footer{
-    background-color: black;
+    background-color: var(--primary-color);
     width: 100vw;
     height:max-content;
     display: flex;
@@ -9,7 +9,8 @@
 
     h1{
         color: var(--secondary-color);
-        font-size: 2rem;
+        font-size: 1.5rem;
+        font-weight: 500;
         text-align: center;
         padding-top: 2rem;
         overflow: hidden;
@@ -28,12 +29,13 @@
         .Person__social{
             text-align: center;
             color: var(--secondary-color);
-            font-size: 2rem;
+            font-size: 1.4rem;
             transition: 0.3s;
             width: 16%;
             
             h4{
-                font-size: 1.4rem;
+                font-size: 1.2rem;
+                font-weight: 400;
                 color: white;
             }
 

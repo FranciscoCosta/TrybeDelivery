@@ -6,6 +6,8 @@ const {
   userGetById,
   allUsersService,
   registerAdminService,
+  usersUpdatePasswordService,
+  usersUpdateAddressService,
 } = require('../services/UsersService');
 
 const NOT_FOUND = 'User or Password not found';
@@ -40,9 +42,11 @@ const allUsersController = async (_req, res) => {
 
 const registerAdminController = async (req, res) => {
   const token = req.headers.authorization;
-  
+
   const verifyAdmin = await verifyTokenAdmin(token);
-  if (verifyAdmin === false) { return res.status(401).json({ message: 'Unauthorized' }); }
+  if (verifyAdmin === false) {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
   const encryptedPassword = md5(req.body.newUser.password);
   const user = {
     name: req.body.newUser.name,
@@ -52,8 +56,30 @@ const registerAdminController = async (req, res) => {
   };
   console.log(user);
   const result = await registerAdminService(user);
-  if (result === false) { return res.status(409).json({ message: 'User already exists' }); }
+  if (result === false) {
+    return res.status(409).json({ message: 'User already exists' });
+  }
   return res.status(201).json(result);
+};
+
+const usersUpdateController = async (req, res) => {
+  const { id } = req.params;
+  if (req.body.password) {
+    const user = { password: req.body.password, newPassword: req.body.newPassword };
+    const result = await usersUpdatePasswordService(id, user);
+    if (result.error) {
+      return res.status(409).json({ message: result.message });
+    }
+    return res.status(200).json(result);
+  }
+  if (req.body.address) {
+    const user = { address: req.body.address, door: req.body.door };
+    const result = await usersUpdateAddressService(id, user);
+    if (result.error) {
+      return res.status(409).json({ message: result.message });
+}
+    return res.status(200).json(result);
+  }
 };
 
 module.exports = {
@@ -62,4 +88,5 @@ module.exports = {
   userGetId,
   allUsersController,
   registerAdminController,
+  usersUpdateController,
 };

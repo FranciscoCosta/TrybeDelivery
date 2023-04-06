@@ -21,16 +21,11 @@ function SellerDetails() {
     const sale = await axios.get(`http://localhost:3001/orders/${orderId}`);
     setOrder(sale.data);
     const saleProduct = sale.data.id;
-
     const sales = await axios.post(
       'http://localhost:3001/saleproducts',
       { saleProduct },
     );
-
-    console.log(sales.data);
-
     const totalProductsList = sales.data;
-    console.log(totalProductsList, 'aqui');
     const totaltotal = totalProductsList.map(async (product) => {
       const productItem = await axios.get(`http://localhost:3001/products/${product.productId}`);
       productItem.data.quntity = product.quantity;

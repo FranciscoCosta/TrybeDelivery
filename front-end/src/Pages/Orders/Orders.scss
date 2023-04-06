@@ -65,6 +65,13 @@
             font-size: 1rem;
             background-color: var(--primary-color);
 
+            &:disabled {
+                background-color: black;
+                background-color: rgba(165, 164, 164, 0.4);
+                color: white;
+                cursor: not-allowed;
+                border: none;
+              }
         }
     }
     table{

@@ -29,9 +29,9 @@ const dataSocialMedia = [
   },
   {
     name: "Rafael Silva",
-    Linkedin: "https://www.linkedin.com/in/vasconcelos-gu/",
-    Github: "https://github.com/vasconcelosguu",
-    Portfolio: "https://vasconcelosguu.github.io/react-portfolio/",
+    Linkedin: "https://www.linkedin.com/in/rafael-soares-dev/",
+    Github: "https://github.com/rafaelsisoares",
+    Portfolio: "https://rafaelsisoares.github.io/",
   }
 ];
 
