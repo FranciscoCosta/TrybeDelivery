@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
 import { Context } from '../../Context/Context';
+import './SellerDetails.scss';
 
 function SellerDetails() {
   const { id } = useParams();
