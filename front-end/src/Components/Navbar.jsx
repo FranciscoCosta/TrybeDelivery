@@ -81,7 +81,7 @@ function Navbar() {
               type="button"
               onClick={() => navigate("/admin/manage")}
             >
-              Dashboard
+              Gerenciamento de Usuários
             </button>
           )}
           <button

@@ -3,15 +3,19 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar";
 import axios from "axios";
 import "./Admin.scss";
+import { FaTrash} from 'react-icons/fa';
 
 function Admin() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-    const [error, setError] = useState(null);
-    const [isValid, setIsValid] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState(null);
+  const [success, setsuccess] = useState(null);
+  const [isValid, setIsValid] = useState(false);
     const navigate = useNavigate();
     const [users, setUsers] = useState([]);
+    const [successDelete, setSuccessDelete] = useState(null);
+    const [errorDelete, setErrorDelete] = useState(null);
     const [role, setrole] = useState("seller");
     const roles = ["seller", "administrator", "customer"];
 
@@ -32,15 +36,15 @@ function Admin() {
       const fetchUsers = async () => {
         try{
             const response = await axios.get('http://localhost:3001/users');
-            console.log(response.data);
             setUsers(response.data);
         }catch(err){
             setError(err);
-            console.log(err);
         }
     }
 
     const handleSubmit = async (e) => {
+      setError("");
+      setsuccess("");
         e.preventDefault();
         const newUser = {
             name,
@@ -48,10 +52,8 @@ function Admin() {
             password,
             role,
         }
-        console.log(newUser);
         const user = JSON.parse(localStorage.getItem("user"));
         const token = user.token;
-        console.log(token)
         try {
            const res = await axios.post(
                 'http://localhost:3001/register/admin',
@@ -64,26 +66,37 @@ function Admin() {
                   },
                 },
               );
-              console.log(res)
               fetchUsers();
             }catch(err){
                 setError(err.message);
-                console.log(err.message);
             }
         }
       useEffect(() => {
         fetchUsers();
-        }, []);
+        }, [successDelete]);
     
       useEffect(() => {
         validateInputs();
       }, [email, password, name]);
 
+
+      const handleDelete = async (id) => {
+        setErrorDelete("");
+        setSuccessDelete("");
+        try{
+          const userDelete = await axios.delete(`http://localhost:3001/users/${id}`);
+          setSuccessDelete("Usuário deletado com sucesso!");
+        }catch(error){
+          setErrorDelete(error.message);
+        }
+      }
   return (
     <div className="Admin">
       <Navbar />
       <div className="Admin__container">
+        <h1>Gerenciamento de Usuários:</h1>
         <div className="Admin__container__top">
+            <h1>Adicionar um novo Usuário:</h1>
             <form  onSubmit={ handleSubmit } >
         <label htmlFor="email">
               Nome
@@ -144,11 +157,18 @@ function Admin() {
             </button>
             {error && <p
             data-testid="admin_manage__element-invalid-register"
+            className="error"
             >{error}</p>}
+            {
+              success && <p
+              className="success"
+              >{success}</p>
+            }
             </form>
 
         </div>
         <div className="Admin__container__bottom">
+          <h1>Tabela de usuários:</h1>
        <table>
             <thead>
                 <tr>
@@ -178,14 +198,24 @@ function Admin() {
                             <button
                                 data-testid={`admin_manage__element-user-table-remove-${index}`}
                                 type="button"
+                                id={user.id}
+                                onClick={()=> handleDelete(user.id) }
                             >
-                                Excluir
+                               <FaTrash/>
                             </button>
                         </td>
                     </tr>
                 ))}
             </tbody>
        </table>
+       {errorDelete && <p
+            className="error"
+            >{errorDelete}</p>}
+            {
+              successDelete && <p
+              className="success"
+              >{successDelete}</p>
+            }
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ const {
   registerAdminService,
   usersUpdatePasswordService,
   usersUpdateAddressService,
+  usersDeleteService,
 } = require('../services/UsersService');
 
 const NOT_FOUND = 'User or Password not found';
@@ -82,6 +83,15 @@ const usersUpdateController = async (req, res) => {
   }
 };
 
+const usersDeleteController = async (req, res) => {
+  const { id } = req.params;
+  const result = await usersDeleteService(id);
+  if (result.error) {
+    return res.status(409).json({ message: 'Não foi possivel deletar usuário' });
+  }
+  return res.status(200).json(result);
+};
+
 module.exports = {
   usersController,
   userGet,
@@ -89,4 +99,5 @@ module.exports = {
   allUsersController,
   registerAdminController,
   usersUpdateController,
+  usersDeleteController,
 };

@@ -54,6 +54,11 @@ const usersUpdateAddressService = async (id, user) => {
   }
 };
 
+const usersDeleteService = async (id) => {
+  const result = await User.destroy({ where: { id } });
+  return result;
+};
+
 module.exports = {
   usersGetService,
   userGetService,
@@ -62,4 +67,5 @@ module.exports = {
   registerAdminService,
   usersUpdatePasswordService,
   usersUpdateAddressService,
+  usersDeleteService,
 };
