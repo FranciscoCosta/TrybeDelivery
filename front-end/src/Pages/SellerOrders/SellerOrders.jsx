@@ -34,7 +34,7 @@ function SellerOrders() {
         <Loading />
       ) : (
         <div className="SellerOrders__container">
-          <h1>Seus pedidos</h1>
+          {/* <h1>Seus pedidos</h1> */}
           {orders.map === []
             ? "Você não tem pedidos"
             : orders.map((order) => (

@@ -25,7 +25,7 @@ function Navbar() {
   }
 
   const [navbarActive, setnavbarActive] = useState(false);
-  const handleLougout = () => {
+  const handleLogout = () => {
     localStorage.removeItem("user");
     navigate("/login");
   };
@@ -47,23 +47,6 @@ function Navbar() {
       <div className="Navbar__container">
         <div className="Navbar__left">
           <img src={Logo} alt="TrybeDeliveryLogo" />
-          {/* <motion.div
-        className="Navbar__theme"
-        onClick={() => toogleTheme()}
-        transition={{ duration: 0.5 }}
-        style={{
-          background: isOn
-            ? "linear-gradient(50deg, rgba(237,242,248,1) 15%, rgba(107,118,136,1) 86%)"
-            : "linear-gradient(310deg, rgba(237,242,248,1) 15%, rgba(107,118,136,1) 86%)",
-        }}
-      >
-        <motion.img
-          src={isOn ? beer_light : beer_dark}
-          key={isOn ? "beer" : "drink"}
-          animate={{ x: isOn ? 0 : 55, opacity: 1 }}
-          transition={{ duration: 0.2 }}
-        ></motion.img>
-      </motion.div> */}
         </div>
         <div className="Navbar__right">
           {currentUser.role === "customer" && (
@@ -75,7 +58,7 @@ function Navbar() {
               Produtos
             </button>
           )}
-          {currentUser.role === "customer" ? (
+          {currentUser.role === "customer" && (
             <button
               type="button"
               onClick={() => navigate("/customer/orders")}
@@ -83,13 +66,22 @@ function Navbar() {
             >
               Meus Pedidos
             </button>
-          ) : (
+          )}
+          {currentUser.role === "seller" && (
             <button
               type="button"
               onClick={() => navigate("/seller/orders")}
               data-testid="customer_products__element-navbar-link-orders"
             >
               Meus Pedidos
+            </button>
+          )}
+          {currentUser.role === "administrator" && (
+            <button
+              type="button"
+              onClick={() => navigate("/admin/manage")}
+            >
+              Dashboard
             </button>
           )}
           <button
@@ -101,7 +93,7 @@ function Navbar() {
           </button>
           <button
             type="button"
-            onClick={handleLougout}
+            onClick={handleLogout}
             data-testid="customer_products__element-navbar-link-logout"
           >
             Sair
@@ -114,7 +106,7 @@ function Navbar() {
         )}
         <HiHome onClick={() => navigate("/login")} />
         {currentUser.role === "customer" ? (
-          <FaReceipt onClick={() => navigate("/customer/orders")}/>
+          <FaReceipt onClick={() => navigate("/customer/orders")} />
         ) : (
           <FaReceipt onClick={() => navigate("/seller/orders")} />
         )}
@@ -123,5 +115,6 @@ function Navbar() {
     </nav>
   );
 }
+
 
 export default Navbar;

@@ -9,9 +9,10 @@
   .SellerOrders__container {
     display: flex;
     flex-wrap: wrap;  
-    flex-direction: column;
+    flex-direction: row;
     height: max-content;
-    justify-content: start;
+    justify-content: center;
+    text-align: center;
     align-items: center;
     width: 80%;
     margin: auto;
