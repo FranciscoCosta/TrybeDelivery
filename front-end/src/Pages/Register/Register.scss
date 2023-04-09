@@ -4,7 +4,12 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: var(--primary-color);
+    background-image: url('../../assets/bg2.jpg');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
     
 
     .Register__container{
@@ -16,7 +21,8 @@
         align-items: center;
         justify-content: flex-start;
         border-radius: 15px;
-        background: var(--tertiary-color);
+        background: rgba(0, 0, 0, 0.8);
+        border: 1px solid rgb(255, 255, 255);
         box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.2);
         overflow: hidden;
 
