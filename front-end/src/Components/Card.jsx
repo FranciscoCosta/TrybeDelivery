@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Context } from "../Context/Context";
 import "./Card.scss";
 import { GrFormClose } from "react-icons/gr";
+import { motion } from "framer-motion";
 
 function Card({ card }) {
   console.log(card);
@@ -77,7 +78,12 @@ function Card({ card }) {
   };
 
   return (
-    <div className="Card">
+    <motion.div
+    whileHover={{ translateY: "-10px" }}
+    whileInView={{ scale: [0, 1] }}
+    transition={{ duration: 0.25 }}
+    className="Cards"
+    >
       <div
         className="Card__modal"
         style={{ display: showModal ? "flex" : "none" }}
@@ -169,7 +175,7 @@ function Card({ card }) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 Card.propTypes = {
