@@ -8,6 +8,7 @@ import SellerOrders from './SellerOrders/SellerOrders';
 import SellerDetails from './SellerDetails/SellerDetails';
 import Admin from './Admin/Admin';
 import Profile from './Profile/Profile';
+import ProductsAdmin from './ProductsAdmin/ProductsAdmin';
 
 
 export  {
@@ -21,4 +22,5 @@ export  {
     SellerOrders,
     SellerDetails,
     Admin,
+    ProductsAdmin,
 };

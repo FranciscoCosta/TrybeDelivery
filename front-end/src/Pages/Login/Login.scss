@@ -1,6 +1,6 @@
 .Login {
   display: flex;
-  background-image: url('../../assets/bg2.jpg');
+  background-image: url("../../assets/bg2.jpg");
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
@@ -13,11 +13,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     .Login__container-left {
       flex: 1;
     }
-    
+
     .Login__container-right {
       flex: 1;
       display: flex;
@@ -36,8 +36,6 @@
         box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.2);
         border-radius: 15px;
         overflow: hidden;
-        
-        
 
         img {
           margin-top: 1rem;
@@ -53,22 +51,22 @@
           color: var(--secondary-color);
           position: relative;
 
-          button{
+          button {
             overflow: hidden;
             width: 25px;
             height: 25px;
             background-color: transparent;
             position: relative;
-            top : -50px;
+            top: -50px;
             right: -130px;
 
-            svg{
+            svg {
               color: rgba(0, 0, 0, 0.2);
-            
-            :hover{
-              transition: 0.4s all ease-in-out;
-              color: rgba(0, 0, 0, 0.8);
-            }
+
+              :hover {
+                transition: 0.4s all ease-in-out;
+                color: rgba(0, 0, 0, 0.8);
+              }
             }
           }
         }
@@ -143,22 +141,20 @@
             color: white;
           }
         }
-      @media screen and (max-width: 768px) {
-        width: 100vw;
-        height: 80vh;
-        border-radius: 0px;
-        box-shadow: none;
-        gap: 0.5rem;
+        @media screen and (max-width: 768px) {
+          width: 100vw;
+          height: 80vh;
+          border-radius: 0px;
+          box-shadow: none;
+          gap: 0.5rem;
 
-        label{
-          width: 90%;
+          label {
+            width: 90%;
+          }
         }
-        
-      }
-      @media screen and (max-width: 480px) {
-        height: 100vh;
-        
-      }
+        @media screen and (max-width: 480px) {
+          height: 100vh;
+        }
       }
     }
   }

@@ -6,7 +6,6 @@ import { GrFormClose } from "react-icons/gr";
 import { motion } from "framer-motion";
 
 function Card({ card }) {
-  console.log(card);
   const [quantity, setquantity] = useState("");
   const [showModal, setShowModal] = useState(false);
   const { setUpdate, update, getTotalPriceFromCart } = useContext(Context);
@@ -79,10 +78,9 @@ function Card({ card }) {
 
   return (
     <motion.div
-    whileHover={{ translateY: "-10px" }}
+    className="Card"
     whileInView={{ scale: [0, 1] }}
     transition={{ duration: 0.25 }}
-    className="Cards"
     >
       <div
         className="Card__modal"

@@ -7,7 +7,7 @@ function Provider({ children }) {
   const [total, settotal] = useState(0);
 
   function getTotalPriceFromCart() {
-    const cartItems = JSON.parse(localStorage.getItem('carrinho'));
+    const cartItems = JSON.parse(localStorage.getItem('carrinho')) || [];
     console.log(cartItems,"function cart");
     const totalPrice = cartItems.reduce((acc, item) => {
       const { quantity, unitPrice } = item;
