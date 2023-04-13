@@ -9,6 +9,7 @@ const productsRoute = require('./routes/productsRoute');
 const usersRoute = require('./routes/usersRoute');
 const salesRoute = require('./routes/salesRoute');
 const saleProductsRoute = require('./routes/saleProductsRoute');
+const adminRoute = require('./routes/adminRoute');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(productsRoute);
 app.use(usersRoute);
 app.use(salesRoute);
 app.use(saleProductsRoute);
+app.use(adminRoute);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {

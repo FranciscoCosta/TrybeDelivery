@@ -37,7 +37,7 @@ const getAllSalePService = async () => {
             ],
             group: ['product_id'],
             order: [[Sequelize.fn('sum', Sequelize.col('quantity')), 'DESC']],
-            limit: 7,
+            limit: 10,
           });
           return salesProducts;
     } catch (error) {

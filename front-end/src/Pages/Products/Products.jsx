@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
+import Carousel from 'react-multi-carousel';
 import { FaFilter, FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import Card from '../../Components/Card';
 import Navbar from '../../Components/Navbar';
 import ShoppingCart from '../../Components/ShoppingCart';
 import './Products.scss';
 import Loading from '../../Components/Loading/Loading';
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Footer from '../../Components/Footer/Footer';
 import { Context } from '../../Context/Context';
@@ -65,8 +65,8 @@ function Products() {
           console.log(error);
         }
       });
-      const products = await Promise.all(items);
-      setMostSold(products);
+      const bestSellersItem = await Promise.all(items);
+      setMostSold(bestSellersItem);
     } catch (error) {
       console.log(error);
     }

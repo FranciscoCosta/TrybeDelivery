@@ -9,18 +9,19 @@ import SellerDetails from './SellerDetails/SellerDetails';
 import Admin from './Admin/Admin';
 import Profile from './Profile/Profile';
 import ProductsAdmin from './ProductsAdmin/ProductsAdmin';
+import Dashboard from './Dashboard/Dashboard';
 
-
-export  {
-    Login,
-    Profile,
-    Register,
-    Products,
-    Orders,
-    MyOrders,
-    Checkout,
-    SellerOrders,
-    SellerDetails,
-    Admin,
-    ProductsAdmin,
+export {
+  Login,
+  Profile,
+  Register,
+  Products,
+  Orders,
+  MyOrders,
+  Checkout,
+  SellerOrders,
+  SellerDetails,
+  Admin,
+  ProductsAdmin,
+  Dashboard,
 };

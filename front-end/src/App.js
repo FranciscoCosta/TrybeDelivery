@@ -13,6 +13,7 @@ import {
   Profile,
   Admin,
   ProductsAdmin,
+  Dashboard,
 } from './Pages/index';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Route exact path="/admin/manage" element={ <Admin /> } />
       <Route exact path="/profile" element={ <Profile /> } />
       <Route exact path="/admin/products" element={ <ProductsAdmin /> } />
+      <Route exact path="/admin/dashboard" element={ <Dashboard /> } />
     </Routes>
   );
 }
