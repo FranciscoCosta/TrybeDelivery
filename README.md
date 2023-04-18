@@ -1,8 +1,7 @@
-
 # **TrybeDelivery**
 
 
-Este projeto foi desenvolvido pelo grupo 1 da turma 24A da escola Trybe. Neste projeto tinhamos como objetivo desenvolver um app de delivery de bebidas. Nele existem 3 fluxos diferentes , Cliente , Vendedor e Administrador.
+Este projeto foi desenvolvido pelo grupo 1 da turma 24A da escola Trybe. Neste projeto tínhamos como objetivo desenvolver um app de delivery de bebidas. Nele existem 3 fluxos diferentes, Cliente, Vendedor e Administrador.
 
 ## Fluxo Cliente:
 
@@ -12,7 +11,7 @@ Este projeto foi desenvolvido pelo grupo 1 da turma 24A da escola Trybe. Neste p
 
 Onde o utilizador pode logar na sua conta ou visualizar caso queira a sua password.
 
-**Página de Registro:**
+**Página de Registo:**
 
 ![App Screenshot](https://iili.io/HvU8WFa.md.png)
 
@@ -22,9 +21,9 @@ Onde o utilizador pode registar a sua conta
 
 ![App Screenshot](https://iili.io/HvU88MX.md.png)
 
-Onde o utilizador pode ver todos os produtos do app , carrousel sobre os produtos mais vendidos , modal de informação , filtros de pesquisa e adicionar itens ao carrinho.
+Onde o utilizador pode ver todos os produtos do (app) , carrossel sobre os produtos mais vendidos, modal de informação, filtros de pesquisa e adicionar itens ao carrinho.
 
-**Página de de realizar Pedido:**
+**Página de realizar Pedido:**
 
 ![App Screenshot](https://iili.io/HvUUKml.md.png)
 
@@ -51,7 +50,7 @@ Onde o cliente resetar a sua password e guardar o seu endereço.
 
 ## Fluxo Vendedor:
 
-**Página de Login Página de Registro Página de Perfil** 
+Também possui as páginas de login, registo e perfil. 
 
 **Página de Pedidos:**
 
@@ -67,19 +66,19 @@ Onde o vendedor pode visualizar os Detalhes de cada pedido e atualizar eles.
 
 ## Fluxo Administrador:
 
-**Página de Login Página de Registro Página de Perfil** 
+**Página de Login Página de Registo Página de Perfil** 
 
-**Adicinar usuários:**
+**Adicionar usuários:**
 
 ![App Screenshot](https://iili.io/HvUUbvj.png)
 
 Onde o Administrador pode adicionar usuários pelo role.
 
-**Adicinar produtos:**
+**Adicionar produtos:**
 
 ![App Screenshot](https://iili.io/HvUg9jV.png)
 
-Onde o Administrador pode adicionar produtos ao App.
+Onde o Administrador pode adicionar produtos ao (App).
 
 **Painel de Administrador:**
 
@@ -90,12 +89,12 @@ Onde o Administrador pode visualizar total de usuários , vendedores , produtos 
 
 
 
-# O que foi desevolvido
-- Forms para registrar e fazer o login de usuários.
+# O que foi desenvolvido
+- Forms para registar e fazer o login de usuários.
 - Uma rota login e tokens de autenticação.
 - Uma API CRUD para obter os dados que serão usados pela aplicação.
 - Uma API CRUD e validações que possam ser necessárias.
-- Conexão da aplicação express em um banco de dados para o armazenamento dos dados da aplicação.
+- Conexão da aplicação express num banco de dados para o armazenamento dos dados da aplicação.
 - Manipulação de objetos e arrays do javascript.
 ## Stack utilizada
 
@@ -125,7 +124,7 @@ Entre na pasta back-end adicione o ficheiro **.env** com os seus dados.
 
 ```bash
   cd back-end
-  .env ->>
+  .env -
                 NODE_ENV=development
                 API_PORT=3001
                 MYSQL_HOST="oseulocalhoost"
