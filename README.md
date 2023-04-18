@@ -7,35 +7,46 @@ Este projeto foi desenvolvido pelo grupo 1 da turma 24A da escola Trybe. Neste p
 ## Fluxo Cliente:
 
 **Página de Login:**
+
 ![App Screenshot](https://iili.io/HvUvOBe.md.png)
 
 Onde o utilizador pode logar na sua conta ou visualizar caso queira a sua password.
 
 **Página de Registro:**
+
 ![App Screenshot](https://iili.io/HvU8WFa.md.png)
 
 Onde o utilizador pode registar a sua conta
 
 **Página de Produtos:** 
+
 ![App Screenshot](https://iili.io/HvU88MX.md.png)
 
 Onde o utilizador pode ver todos os produtos do app , carrousel sobre os produtos mais vendidos , modal de informação , filtros de pesquisa e adicionar itens ao carrinho.
 
 **Página de de realizar Pedido:**
+
 ![App Screenshot](https://iili.io/HvUUKml.md.png)
+
 Onde o cliente pode realizar um pedido.
 
 
 **Página de Pedidos:**
+
 ![App Screenshot](https://iili.io/HvUSNUb.png)
+
 Onde o cliente pode visualizar todos os seus pedidos e o status deles.
 
 **Página de Detalhes do pedido:**
+
 ![App Screenshot](https://iili.io/HvUU9qX.md.png)
+
 Onde o cliente pode visualizar os Detalhes de cada pedido.
 
 **Página de Perfil:**
+
 ![App Screenshot](https://iili.io/HvUUCL7.md.png)
+
 Onde o cliente resetar a sua password e guardar o seu endereço.
 
 ## Fluxo Vendedor:
@@ -43,11 +54,15 @@ Onde o cliente resetar a sua password e guardar o seu endereço.
 **Página de Login Página de Registro Página de Perfil** 
 
 **Página de Pedidos:**
+
 ![App Screenshot](https://iili.io/HvUURmQ.md.png)
+
 Onde o vendedor pode visualizar todos os seus pedidos e o status deles.
 
 **Página de Detalhes do pedido:**
+
 ![App Screenshot](https://iili.io/HvUUVkv.md.png)
+
 Onde o vendedor pode visualizar os Detalhes de cada pedido e atualizar eles.
 
 ## Fluxo Administrador:
@@ -55,15 +70,21 @@ Onde o vendedor pode visualizar os Detalhes de cada pedido e atualizar eles.
 **Página de Login Página de Registro Página de Perfil** 
 
 **Adicinar usuários:**
+
 ![App Screenshot](https://iili.io/HvUUbvj.png)
+
 Onde o Administrador pode adicionar usuários pelo role.
 
 **Adicinar produtos:**
+
 ![App Screenshot](https://iili.io/HvUg9jV.png)
+
 Onde o Administrador pode adicionar produtos ao App.
 
 **Painel de Administrador:**
+
 ![App Screenshot](https://iili.io/HvUgu6X.png)
+
 Onde o Administrador pode visualizar total de usuários , vendedores , produtos e vendas do sistema. Gráficos sobre os pordutos mais vendidos e os melhores vendedores
 
 
